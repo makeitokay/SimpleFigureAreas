@@ -1,0 +1,46 @@
+-- создаем таблицы, заполняем значениями:
+
+CREATE TABLE Products
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name VARCHAR(30),
+)
+CREATE TABLE Categories
+(
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  Name VARCHAR(30),
+)
+CREATE TABLE CategoriesProducts
+(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+ProductId INT REFERENCES Products(Id),
+CategoryId INT REFERENCES Categories(Id)
+)
+
+INSERT INTO Categories(Name) VALUES ('Milky'), ('Drinks'), ('Floury'), ('Sweet'), ('Alcohol')
+INSERT INTO Products(Name) VALUES ('Cheese'), ('Milk'), ('Muffin'), ('Coca-Cola'), ('Snezhok'), ('Porridge')
+INSERT INTO CategoriesProducts(ProductId, CategoryId) VALUES (1, 1), (2, 1), (2, 2), (3, 3), (3, 4), (4, 2), (4, 4), (5, 1), (5, 2), (5, 4)
+
+-- если задание было понято мной правильно, имеем дело с ManyToMany взаимосвязью между данными. Следовательно, имеется дополнительная таблица, из которой двумя join'ами получаем все пары:
+
+select Products.Name as 'Product', Categories.Name as 'Category' from CategoriesProducts 
+join Categories on Categories.Id = CategoriesProducts.CategoryId
+right join Products on Products.Id = CategoriesProducts.ProductId
+
+/* 
+
+получаем результат:
+
+Cheese	Milky
+Milk	Milky
+Milk	Drinks
+Muffin	Floury
+Muffin	Sweet
+Coca-Cola	Drinks
+Coca-Cola	Sweet
+Snezhok	Milky
+Snezhok	Drinks
+Snezhok	Sweet
+Porridge	(null)
+
+*/

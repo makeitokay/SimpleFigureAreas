@@ -31,16 +31,16 @@ right join Products on Products.Id = CategoriesProducts.ProductId
 
 получаем результат:
 
-Cheese	Milky
-Milk	Milky
-Milk	Drinks
-Muffin	Floury
-Muffin	Sweet
+Cheese    Milky
+Milk      Milky
+Milk	    Drinks
+Muffin    Floury
+Muffin    Sweet
 Coca-Cola	Drinks
 Coca-Cola	Sweet
-Snezhok	Milky
-Snezhok	Drinks
-Snezhok	Sweet
+Snezhok	  Milky
+Snezhok	  Drinks
+Snezhok	  Sweet
 Porridge	(null)
 
 */

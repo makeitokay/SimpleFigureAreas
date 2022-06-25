@@ -7,14 +7,14 @@ CREATE TABLE Products
 )
 CREATE TABLE Categories
 (
-  Id INT IDENTITY(1,1) PRIMARY KEY,
-  Name VARCHAR(30),
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name VARCHAR(30),
 )
 CREATE TABLE CategoriesProducts
 (
-Id INT IDENTITY(1,1) PRIMARY KEY,
-ProductId INT REFERENCES Products(Id),
-CategoryId INT REFERENCES Categories(Id)
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ProductId INT REFERENCES Products(Id),
+    CategoryId INT REFERENCES Categories(Id)
 )
 
 INSERT INTO Categories(Name) VALUES ('Milky'), ('Drinks'), ('Floury'), ('Sweet'), ('Alcohol')

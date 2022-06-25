@@ -23,9 +23,9 @@ INSERT INTO CategoriesProducts(ProductId, CategoryId) VALUES (1, 1), (2, 1), (2,
 
 -- если задание было понято мной правильно, имеем дело с ManyToMany взаимосвязью между данными. Следовательно, имеется дополнительная таблица, из которой двумя join'ами получаем все пары:
 
-select Products.Name as 'Product', Categories.Name as 'Category' from CategoriesProducts 
-join Categories on Categories.Id = CategoriesProducts.CategoryId
-right join Products on Products.Id = CategoriesProducts.ProductId
+SELECT Products.Name AS 'Product', Categories.Name AS 'Category' FROM CategoriesProducts 
+JOIN Categories ON Categories.Id = CategoriesProducts.CategoryId
+RIGHT JOIN Products ON Products.Id = CategoriesProducts.ProductId
 
 /* 
 

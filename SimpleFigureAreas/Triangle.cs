@@ -1,7 +1,5 @@
 ﻿namespace SimpleFigureAreas;
 
-using System.Linq;
-
 public class Triangle : Figure
 {
     private (uint first, uint second, uint third) _sides;

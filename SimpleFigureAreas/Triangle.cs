@@ -11,9 +11,10 @@ public class Triangle : Figure
         {
             if (value.first == 0 || value.second == 0 || value.third == 0)
                 throw new ArgumentException("Triangle side cannot be equal to zero.");
-            if (value.first + value.second <= value.third ||
-                value.first + value.third <= value.second ||
-                value.second + value.third <= value.first)
+            Console.WriteLine((long)value.first + value.second);
+            if ((long)value.first + value.second <= value.third ||
+                (long)value.first + value.third <= value.second ||
+                (long)value.second + value.third <= value.first)
                 throw new ArgumentException("Triangle with specified sides does not exist.");
             _sides = value;
         }
@@ -37,7 +38,7 @@ public class Triangle : Figure
         }
     }
 
-    public uint Perimeter => Sides.first + Sides.second + Sides.third;
+    public long Perimeter => (long)Sides.first + Sides.second + Sides.third;
 
     public Triangle((uint first, uint second, uint third) sides)
     {

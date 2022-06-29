@@ -11,7 +11,6 @@ public class Triangle : Figure
         {
             if (value.first == 0 || value.second == 0 || value.third == 0)
                 throw new ArgumentException("Triangle side cannot be equal to zero.");
-            Console.WriteLine((long)value.first + value.second);
             if ((long)value.first + value.second <= value.third ||
                 (long)value.first + value.third <= value.second ||
                 (long)value.second + value.third <= value.first)
